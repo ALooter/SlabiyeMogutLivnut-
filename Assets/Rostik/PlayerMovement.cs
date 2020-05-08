@@ -10,14 +10,11 @@ public class PlayerMovement : MonoBehaviour
     public Camera cam;
     
     Vector2 movement;
-    Vector2 mousePos;
 
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
 
     void FixedUpdate()
@@ -36,7 +33,6 @@ public class PlayerMovement : MonoBehaviour
         }
         rb.MovePosition(rb.position + movement * playerSpeed * Time.fixedDeltaTime);
         
-
         cam.transform.position = rb.transform.position + new Vector3(0, 0, -10f);
     }
 }

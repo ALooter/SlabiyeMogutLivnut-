@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public int HP = 100;
     public GameObject deathEffect;
 
+    //input
     public void TakeDamage(int damage) 
     {
         HP -= damage;

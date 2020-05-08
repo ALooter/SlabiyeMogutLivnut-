@@ -146,3 +146,4 @@ MonoBehaviour:
   hitEffect: {fileID: 0}
   desEffect: {fileID: 0}
   bulletDestroyTime: 1
+  damagePoints: 10

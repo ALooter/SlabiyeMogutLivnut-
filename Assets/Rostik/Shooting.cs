@@ -5,6 +5,7 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
     //public Animator animator;
+    public AudioManager am;
 
     public int weapon = 0;
 
@@ -51,6 +52,8 @@ public class Shooting : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, shootpoint.position, shootpoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(shootpoint.up * bulletForce, ForceMode2D.Impulse);
+
+        am.Play("bullet");
     }
 
     void Hit() 
@@ -62,6 +65,8 @@ public class Shooting : MonoBehaviour
         {
             enemy.GetComponent<Stats>().TakeDamage(swordDM);
         }
+
+        am.Play("enemy1");
     }
 
     void OnDrawGizmosSelected() {

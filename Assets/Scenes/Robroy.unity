@@ -1795,6 +1795,7 @@ MonoBehaviour:
   playerSpeed: 5
   rb: {fileID: 2074860876}
   cam: {fileID: 465830715}
+  animat: {fileID: 2074860879}
 --- !u!50 &2074860876
 Rigidbody2D:
   serializedVersion: 4

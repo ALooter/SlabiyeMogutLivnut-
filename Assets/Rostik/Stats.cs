@@ -20,7 +20,7 @@ public class Stats : MonoBehaviour
         if(HP <= 0)
         {
             Die();
-        }
+                   }
     }
 
     void Die()

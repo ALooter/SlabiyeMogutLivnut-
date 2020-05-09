@@ -11,11 +11,23 @@ public class PlayerMovement : MonoBehaviour
     
     Vector2 movement;
 
+    public Animator animat;
+
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-        
+
+
+        //changing parameter responsible for animation
+        if (movement.x != 0 || movement.y != 0)
+        {
+            animat.SetBool("isMoving", true);
+        }
+        else
+        {
+            animat.SetBool("isMoving", false);
+        }
     }
 
     void FixedUpdate()

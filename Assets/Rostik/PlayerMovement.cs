@@ -8,7 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public float verSpeed = 0.2f;
     float speadX;
     float speadY;
-    private float timer = 10f;
+    public float timer = 10f;
+    public float nextTime = 10f;
 
 
     public Rigidbody2D rb;
@@ -58,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
         if (timer <= 0)
         {
             ChangeRandControl();
-            timer = 10f;
+            timer = nextTime;
         }
 
     }

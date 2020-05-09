@@ -36,17 +36,17 @@ public class Shooting : MonoBehaviour
         //isRanged
         if (weapon == 0)
         {
-            animat.SetBool("isRanged", true);
+           // animat.SetBool("isRanged", true);
         }
         else if (weapon == 1)
         {
-            animat.SetBool("isRanged", false);
+            //animat.SetBool("isRanged", false);
         }
     }
 
     void Shoot()
     {
-        animat.SetBool("isAttacking", true);
+        //animat.SetBool("isAttacking", true);
 
         GameObject bullet = Instantiate(bulletPrefab, shootpoint.position, shootpoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
@@ -55,7 +55,7 @@ public class Shooting : MonoBehaviour
 
     void Hit() 
     {
-        animat.SetBool("isAttacking", true);
+       // animat.SetBool("isAttacking", true);
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(swordPoint.position, swordRange, enemyLayers);
         foreach (Collider2D enemy in hitEnemies)

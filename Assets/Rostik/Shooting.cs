@@ -22,28 +22,18 @@ public class Shooting : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1"))
         {
-            if(weapon == 0)
-                Shoot();
-            else if(weapon == 1)
-                Hit();
-        }
-    }
-
-    private void Start()
-    {
-        //[Animator]
-        //isRanged
-        if (weapon == 0)
-        {
+            Shoot();
             animat.SetBool("isRanged", true);
         }
-        else if (weapon == 1)
-        {
+        if (Input.GetButtonDown("Fire2")) 
+        { 
+            Hit();
             animat.SetBool("isRanged", false);
         }
     }
+
 
     void Shoot()
     {
@@ -66,7 +56,7 @@ public class Shooting : MonoBehaviour
             enemy.GetComponent<Stats>().TakeDamage(swordDM);
         }
 
-        am.Play("enemy1");
+        am.Play("sword");
     }
 
     void OnDrawGizmosSelected() {

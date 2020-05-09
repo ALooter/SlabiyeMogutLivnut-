@@ -4,16 +4,27 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
+    //public Animator animator;
+
+    public int weapon = 0;
+
     public Transform usedBullet;
     public GameObject bulletPrefab;
+     public float bulletForce = 20f;
 
-    public float bulletForce = 20f;
+    public Transform swordPoint;
+    public float swordRange = 0.5f;
+    public LayerMask enemyLayers;
+    public int swordDM = 10;
 
     void Update()
     {
         if(Input.GetButtonDown("Fire1"))
         {
-            Shoot();
+            if(weapon == 0)
+                Shoot();
+            else if(weapon == 1)
+                Hit();
         }
     }
 
@@ -22,5 +33,24 @@ public class Shooting : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, usedBullet.position, usedBullet.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(usedBullet.up * bulletForce, ForceMode2D.Impulse);
+    }
+
+    void Hit() 
+    {
+        //animator.SetTrigger("SwordAttack");
+
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(swordPoint.position, swordRange, enemyLayers);
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            enemy.GetComponent<Stats>().TakeDamage(swordDM);
+        }
+    }
+
+    void OnDrawGizmosSelected() {
+        if(swordPoint == null)
+            return;
+
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(swordPoint.position, swordRange);
     }
 }

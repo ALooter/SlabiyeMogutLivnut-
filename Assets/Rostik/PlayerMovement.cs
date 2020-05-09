@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+        
     }
 
     void FixedUpdate()
@@ -32,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
             rb.rotation = 180;
         }
         rb.MovePosition(rb.position + movement * playerSpeed * Time.fixedDeltaTime);
-        
+
         cam.transform.position = rb.transform.position + new Vector3(0, 0, -10f);
     }
 }

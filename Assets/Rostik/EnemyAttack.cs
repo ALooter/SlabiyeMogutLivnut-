@@ -22,6 +22,6 @@ public class EnemyAttack : MonoBehaviour
     }
 
     void Update() {
-
+        
     }
 }

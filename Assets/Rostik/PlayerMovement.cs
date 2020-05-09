@@ -19,16 +19,18 @@ public class PlayerMovement : MonoBehaviour
     
     Vector2 movement;
 
-    //Transform defaulttransform;
-
     public Animator animat;
 
+<<<<<<< HEAD
     Vector3 defaultSH = new Vector3 ( 1, 1, 1);
     
     private string w = "w";
     private string s = "s";
     private string a = "a";
     private string d = "d";
+=======
+    Vector3 defaultSH = new Vector3 (-0.3f, 0.21f, 0);
+>>>>>>> origin/master
 
     private int[] prevNum = new int[3]; 
     private int tN = 0;
@@ -40,20 +42,20 @@ public class PlayerMovement : MonoBehaviour
         //isMoving
         if (movement.x != 0 || movement.y != 0)
         {
-            //animat.SetBool("isMoving", true);
+            animat.SetBool("isMoving", true);
         }
         else
         {
-           // animat.SetBool("isMoving", false);
+            animat.SetBool("isMoving", false);
         }
         //isVpered
         if (movement.y > 0)
         {
-          //  animat.SetBool("isVpered", true);
+            animat.SetBool("isVpered", true);
         }
         if (movement.y <=0 && movement.x != 0)
         {
-          //  animat.SetBool("isVpered", false);
+            animat.SetBool("isVpered", false);
         }
         
         timer -= Time.deltaTime;
@@ -86,23 +88,21 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey("w"))
         {
-            
-            shRb.rotation = 270;
+            shRb.rotation = 0;
         }
         if (Input.GetKey("a"))
         {
-            shRb.rotation = 0;
-            
+            shRb.rotation = 90;
+            transform.localScale = new Vector3(2.25f, 2f, 0);
         }
         if (Input.GetKey("d"))
         {
-            shRb.rotation = 180;
-            
+            shRb.rotation = 270;
+            transform.localScale = new Vector3(-2.25f, 2f, 0);
         }
         if(Input.GetKey("s"))
         {
-            shRb.rotation = 90;
-            
+            shRb.rotation = 180;
         } 
         
         shootPoint.transform.localPosition = defaultSH;

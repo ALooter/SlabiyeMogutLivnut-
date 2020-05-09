@@ -334,7 +334,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.04511921, y: -0.100854576}
+  m_Offset: {x: 0.045119226, y: 0.1221821}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -345,7 +345,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.54976153, y: 0.43829083}
+  m_Size: {x: 0.54976153, y: 0.34907544}
   m_EdgeRadius: 0
 --- !u!212 &145184146
 SpriteRenderer:
@@ -405,8 +405,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 145184144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.405, y: -5.865, z: -1}
-  m_LocalScale: {x: 2.0317538, y: 2.0317538, z: 2.0317538}
+  m_LocalPosition: {x: -0.82, y: -1.34, z: -1}
+  m_LocalScale: {x: 2.6710408, y: 2.75095, z: 2.0317538}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -3373,6 +3373,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2074860874}
   rb: {fileID: 1094086908}
+  weapon: {fileID: 0}
+  x: 0
+  y: 0
+  z: 0
   enemySpeed: 1
   timerAttackBall: 10
 --- !u!50 &1094086908
@@ -3970,7 +3974,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 25
+  m_SortingOrder: 50
   m_TargetDisplay: 0
 --- !u!224 &1120280311
 RectTransform:

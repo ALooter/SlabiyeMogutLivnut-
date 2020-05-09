@@ -13,16 +13,13 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D shRb;
     
     Vector2 movement;
-    Transform defaulttransform;
+
+    //Transform defaulttransform;
+
     public Animator animat;
 
     Vector3 defaultSH;
 
-    private void Start()
-    {
-        defaultSH = shootPoint.transform.localPosition;
-        defaulttransform = this.transform;
-    }
 
     void Update()
     {
@@ -59,23 +56,23 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey("w"))
         {
-            this.transform.rotation = Quaternion.Euler(0, 0, 270);
+            
             shRb.rotation = 270;
         }
         if (Input.GetKey("a"))
         {
             shRb.rotation = 0;
-            this.transform.rotation = Quaternion.Euler(0, 0, 0);
+            
         }
         if (Input.GetKey("d"))
         {
             shRb.rotation = 180;
-            this.transform.rotation = Quaternion.Euler(0, 0, 180);
+            
         }
         if(Input.GetKey("s"))
         {
             shRb.rotation = 90;
-            this.transform.rotation = Quaternion.Euler(0, 0, 90);
+            
         } 
         
         shootPoint.transform.localPosition = defaultSH;

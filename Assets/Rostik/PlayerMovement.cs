@@ -8,23 +8,25 @@ public class PlayerMovement : MonoBehaviour
 
     public Rigidbody2D rb;
     public Camera cam;
+
+    public GameObject shootPoint;
+    public Rigidbody2D shRb;
     
     Vector2 movement;
-    Transform defaulttransform;
+
+    //Transform defaulttransform;
+
     public Animator animat;
 
-    Transform shootpoint;
+    Vector3 defaultSH;
 
-    private void Start()
-    {
-        defaulttransform = this.transform;
-    }
 
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
+        
 
         //[Animator] changing parameter responsible for animation
         //isMoving
@@ -54,21 +56,27 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey("w"))
         {
-            rb.rotation = 270;
+            
+            shRb.rotation = 270;
         }
         if (Input.GetKey("a"))
         {
-            rb.rotation = 0;
+            shRb.rotation = 0;
+            
         }
-        if (Input.GetKey("d")){
-            rb.rotation = 180;
+        if (Input.GetKey("d"))
+        {
+            shRb.rotation = 180;
+            
         }
-        if(Input.GetKey("s")){
-            rb.rotation = 90;
+        if(Input.GetKey("s"))
+        {
+            shRb.rotation = 90;
+            
         } 
         
+        shootPoint.transform.localPosition = defaultSH;
         rb.MovePosition(rb.position + movement * playerSpeed * Time.fixedDeltaTime);
-        //shootpoint.rotation = this.transform.rotation;
         cam.transform.position = rb.transform.position + new Vector3(0, 0, -10f);
     }
 }

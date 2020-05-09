@@ -4194,6 +4194,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2005742906}
+  - component: {fileID: 2005742907}
   m_Layer: 0
   m_Name: shoot_point
   m_TagString: Untagged
@@ -4215,6 +4216,27 @@ Transform:
   m_Father: {fileID: 2074860874}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!50 &2005742907
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005742905}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2068396854
 GameObject:
   m_ObjectHideFlags: 0
@@ -4427,6 +4449,8 @@ MonoBehaviour:
   playerSpeed: 5
   rb: {fileID: 2074860876}
   cam: {fileID: 465830715}
+  shootPoint: {fileID: 2005742905}
+  shRb: {fileID: 2005742907}
   animat: {fileID: 2074860879}
 --- !u!50 &2074860876
 Rigidbody2D:
@@ -4440,7 +4464,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0

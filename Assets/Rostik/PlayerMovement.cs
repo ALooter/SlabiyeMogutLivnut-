@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator animat;
 
-    Vector3 defaultSH = new Vector3 ( 1, 1, 1);
+    Vector3 defaultSH = new Vector3 (-0.3f, 0.21f, 0);
 
 
     void Update()
@@ -57,21 +57,21 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey("w"))
         {
             
-            shRb.rotation = 270;
+            shRb.rotation = 0;
         }
         if (Input.GetKey("a"))
         {
-            shRb.rotation = 0;
+            shRb.rotation = 90;
             
         }
         if (Input.GetKey("d"))
         {
-            shRb.rotation = 180;
+            shRb.rotation = 270;
             
         }
         if(Input.GetKey("s"))
         {
-            shRb.rotation = 90;
+            shRb.rotation = 180;
             
         } 
         

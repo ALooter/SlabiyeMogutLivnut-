@@ -4128,7 +4128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ef2f1e3e9d593f4d9ec3e8693cd9b93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 10
   numberofLifes: 10
   lives:
   - {fileID: 1404657382}
@@ -4315,7 +4315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -6309,7 +6309,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005742905}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.415, y: 0.111, z: 0}
+  m_LocalPosition: {x: -0.313, y: 0.215, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2074860874}
@@ -6929,9 +6929,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.040029198, y: -0.12671995}
+  m_Offset: {x: 0.035987712, y: -0.21070793}
   serializedVersion: 2
-  m_Radius: 0.24301012
+  m_Radius: 0.18372191
 --- !u!111 &2074860878
 Animation:
   m_ObjectHideFlags: 0

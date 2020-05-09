@@ -14,8 +14,6 @@ public class PlayerMovement : MonoBehaviour
     
     Vector2 movement;
 
-    //Transform defaulttransform;
-
     public Animator animat;
 
     Vector3 defaultSH = new Vector3 (-0.3f, 0.21f, 0);
@@ -32,20 +30,20 @@ public class PlayerMovement : MonoBehaviour
         //isMoving
         if (movement.x != 0 || movement.y != 0)
         {
-            //animat.SetBool("isMoving", true);
+            animat.SetBool("isMoving", true);
         }
         else
         {
-           // animat.SetBool("isMoving", false);
+            animat.SetBool("isMoving", false);
         }
         //isVpered
         if (movement.y > 0)
         {
-          //  animat.SetBool("isVpered", true);
+            animat.SetBool("isVpered", true);
         }
         if (movement.y <=0 && movement.x != 0)
         {
-          //  animat.SetBool("isVpered", false);
+            animat.SetBool("isVpered", false);
         }
         
 

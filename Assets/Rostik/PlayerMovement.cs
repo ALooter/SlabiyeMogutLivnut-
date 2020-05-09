@@ -26,7 +26,8 @@ public class PlayerMovement : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
 
 
-        //changing parameter responsible for animation
+        //[Animator] changing parameter responsible for animation
+        //isMoving
         if (movement.x != 0 || movement.y != 0)
         {
             animat.SetBool("isMoving", true);
@@ -35,6 +36,18 @@ public class PlayerMovement : MonoBehaviour
         {
             animat.SetBool("isMoving", false);
         }
+        //isVpered
+        if (movement.y > 0)
+        {
+            animat.SetBool("isVpered", true);
+        }
+        if (movement.y <=0 && movement.x != 0)
+        {
+            animat.SetBool("isVpered", false);
+        }
+        
+
+
     }
 
     void FixedUpdate()

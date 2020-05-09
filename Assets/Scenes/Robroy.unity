@@ -2672,6 +2672,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &860662820 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5402543934808046192, guid: 5529a442c2e27ed46a1bc381b3bd4013,
+    type: 3}
+  m_PrefabInstance: {fileID: 925571330}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb31004aea0fcc4782b537829269aa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &893797834
 GameObject:
   m_ObjectHideFlags: 0
@@ -3443,6 +3455,7 @@ GameObject:
   - component: {fileID: 1094086905}
   - component: {fileID: 1094086908}
   - component: {fileID: 1094086906}
+  - component: {fileID: 1094086909}
   - component: {fileID: 1094086907}
   m_Layer: 8
   m_Name: Enemy
@@ -3545,7 +3558,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.19, y: 2.84, z: -1}
   m_LocalScale: {x: 2.1694963, y: 2.1694963, z: 2.1694963}
-  m_Children: []
+  m_Children:
+  - {fileID: 1645126594}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3587,7 +3601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e781a2a65fd2fa44cb927ceba39ec372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 100
+  HP: 1000
   deathAnim: {fileID: 0}
   hpscript: {fileID: 1461386730}
 --- !u!114 &1094086907
@@ -3604,7 +3618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2074860874}
   rb: {fileID: 1094086908}
-  weapon: {fileID: 0}
+  weapon: {fileID: 1645126594}
   x: 0
   y: 0
   z: 0
@@ -3631,6 +3645,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1094086909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094086900}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf93cebf4b6599e4cac90e37208c3a69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootpoint: {fileID: 1645126594}
+  targetPoint: {fileID: 2074860876}
+  bulletPrefab: {fileID: 7444912625384121149, guid: 0b4df374d7cdfb9468a572057478bd3f,
+    type: 3}
+  bulletForce: 20
+  swordPoint: {fileID: 1645126594}
+  swordRange: 0.5
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 512
+  swordDM: 10
+  player: {fileID: 2074860874}
+  varAttack: 0
 --- !u!1 &1094401325
 GameObject:
   m_ObjectHideFlags: 0
@@ -5050,7 +5089,7 @@ RectTransform:
   m_GameObject: {fileID: 1461386728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children:
   - {fileID: 1333980571}
   - {fileID: 493721192}
@@ -5059,7 +5098,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.99, y: 156.34}
+  m_AnchoredPosition: {x: 6, y: 153}
   m_SizeDelta: {x: 262.15222, y: 10.572661}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1461386730
@@ -5471,6 +5510,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 27
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1645126593
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1645126594}
+  m_Layer: 8
+  m_Name: point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1645126594
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645126593}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.178, y: -0.568, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1094086904}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1671423455
 GameObject:
@@ -6802,7 +6871,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.035987712, y: -0.21070793}
@@ -6870,7 +6939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 2074860879}
-  am: {fileID: 0}
+  am: {fileID: 860662820}
   weapon: 0
   shootpoint: {fileID: 2005742906}
   bulletPrefab: {fileID: 1158710583535303643, guid: 0831de5c1c9765b4ea79d9d74454c18a,

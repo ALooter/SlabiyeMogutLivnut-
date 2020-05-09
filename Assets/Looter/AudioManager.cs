@@ -11,7 +11,12 @@ public class AudioManager : MonoBehaviour
 
 	public Sound[] sounds;
 
-	void Awake()
+    private void Start()
+    {
+        Play("fight2");
+    }
+
+    void Awake()
 	{
 		if (instance != null)
 		{

@@ -8,6 +8,7 @@ public class AIShooting : MonoBehaviour
     public Rigidbody2D targetPoint;
     public GameObject bulletPrefab;
     public float bulletForce = 20f;
+    private float timer = 90f;
 
     public Transform swordPoint;
     public float swordRange = 0.5f;
@@ -24,12 +25,11 @@ public class AIShooting : MonoBehaviour
         float angl = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
         targetPoint.rotation = angl;
 
-        if(varAttack == 0){
+        
             Shoot();
-        }
-        else if(varAttack == 1) {
-            Hit();
-        }
+            timer = Random.Range( 0, 150 );
+        
+        Hit();
     }
 
     void Shoot()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    //public Animator animator;
+    public Animator animator;
     public AudioManager am;
 
     public int weapon = 0;
@@ -22,32 +22,22 @@ public class Shooting : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1"))
         {
-            if(weapon == 0)
-                Shoot();
-            else if(weapon == 1)
-                Hit();
+            Shoot();
+            animat.SetBool("isRanged", true);
+        }
+        if (Input.GetButtonDown("Fire2")) 
+        { 
+            Hit();
+            animat.SetBool("isRanged", false);
         }
     }
 
-    private void Start()
-    {
-        //[Animator]
-        //isRanged
-        if (weapon == 0)
-        {
-           // animat.SetBool("isRanged", true);
-        }
-        else if (weapon == 1)
-        {
-            //animat.SetBool("isRanged", false);
-        }
-    }
 
     void Shoot()
     {
-        //animat.SetBool("isAttacking", true);
+        animat.SetBool("isAttacking", true);
 
         GameObject bullet = Instantiate(bulletPrefab, shootpoint.position, shootpoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
@@ -58,7 +48,7 @@ public class Shooting : MonoBehaviour
 
     void Hit() 
     {
-       // animat.SetBool("isAttacking", true);
+       animat.SetBool("isAttacking", true);
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(swordPoint.position, swordRange, enemyLayers);
         foreach (Collider2D enemy in hitEnemies)
@@ -66,7 +56,7 @@ public class Shooting : MonoBehaviour
             enemy.GetComponent<Stats>().TakeDamage(swordDM);
         }
 
-        am.Play("enemy1");
+        am.Play("sword");
     }
 
     void OnDrawGizmosSelected() {

@@ -8,15 +8,19 @@ public class PlayerMovement : MonoBehaviour
 
     public Rigidbody2D rb;
     public Camera cam;
+
+    public GameObject shootPoint;
+    public Rigidbody2D shRb;
     
     Vector2 movement;
     Transform defaulttransform;
     public Animator animat;
 
-    Transform shootpoint;
+    Vector3 defaultSH;
 
     private void Start()
     {
+        defaultSH = shootPoint.transform.localPosition;
         defaulttransform = this.transform;
     }
 
@@ -25,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
+        
 
         //changing parameter responsible for animation
         if (movement.x != 0 || movement.y != 0)
@@ -41,21 +46,27 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey("w"))
         {
-            rb.rotation = 270;
+            this.transform.rotation = Quaternion.Euler(0, 0, 270);
+            shRb.rotation = 270;
         }
         if (Input.GetKey("a"))
         {
-            rb.rotation = 0;
+            shRb.rotation = 0;
+            this.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-        if (Input.GetKey("d")){
-            rb.rotation = 180;
+        if (Input.GetKey("d"))
+        {
+            shRb.rotation = 180;
+            this.transform.rotation = Quaternion.Euler(0, 0, 180);
         }
-        if(Input.GetKey("s")){
-            rb.rotation = 90;
+        if(Input.GetKey("s"))
+        {
+            shRb.rotation = 90;
+            this.transform.rotation = Quaternion.Euler(0, 0, 90);
         } 
         
+        shootPoint.transform.localPosition = defaultSH;
         rb.MovePosition(rb.position + movement * playerSpeed * Time.fixedDeltaTime);
-        //shootpoint.rotation = this.transform.rotation;
         cam.transform.position = rb.transform.position + new Vector3(0, 0, -10f);
     }
 }

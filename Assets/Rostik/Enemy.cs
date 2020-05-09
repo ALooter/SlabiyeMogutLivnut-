@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int HP = 100;
+    public int EnemyHP = 100;
     public GameObject deathEffect;
 
-    //input
     public void TakeDamage(int damage) 
     {
-        HP -= damage;
+        EnemyHP -= damage;
 
-        if(HP <= 0)
+        if(EnemyHP <= 0)
         {
             Die();
         }

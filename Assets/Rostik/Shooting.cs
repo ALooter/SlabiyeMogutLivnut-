@@ -17,6 +17,8 @@ public class Shooting : MonoBehaviour
     public LayerMask enemyLayers;
     public int swordDM = 10;
 
+    public Animator animat;
+
     void Update()
     {
         if(Input.GetButtonDown("Fire1"))
@@ -28,8 +30,24 @@ public class Shooting : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        //[Animator]
+        //isRanged
+        if (weapon == 0)
+        {
+            animat.SetBool("isRanged", true);
+        }
+        else if (weapon == 1)
+        {
+            animat.SetBool("isRanged", false);
+        }
+    }
+
     void Shoot()
     {
+        animat.SetBool("isAttacking", true);
+
         GameObject bullet = Instantiate(bulletPrefab, shootpoint.position, shootpoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(shootpoint.up * bulletForce, ForceMode2D.Impulse);
@@ -37,7 +55,7 @@ public class Shooting : MonoBehaviour
 
     void Hit() 
     {
-        //animator.SetTrigger("SwordAttack");
+        animat.SetBool("isAttacking", true);
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(swordPoint.position, swordRange, enemyLayers);
         foreach (Collider2D enemy in hitEnemies)

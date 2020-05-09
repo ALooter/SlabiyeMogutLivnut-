@@ -6,16 +6,10 @@ public class Stats : MonoBehaviour
 {
     public int HP = 100;
     public GameObject deathAnim;
-    public healthbarscript hpscript;
 
-    private void Start()
-    {
-        hpscript.SetMaxHealth(HP);
-    }
     public void TakeDamage(int damage) 
     {
         HP -= damage;
-        hpscript.SetHealth(HP);
 
         if(HP <= 0)
         {

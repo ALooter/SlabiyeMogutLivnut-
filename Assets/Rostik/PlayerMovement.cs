@@ -20,17 +20,13 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement;
 
     public Animator animat;
-
-<<<<<<< HEAD
-    Vector3 defaultSH = new Vector3 ( 1, 1, 1);
     
     private string w = "w";
     private string s = "s";
     private string a = "a";
     private string d = "d";
-=======
+
     Vector3 defaultSH = new Vector3 (-0.3f, 0.21f, 0);
->>>>>>> origin/master
 
     private int[] prevNum = new int[3]; 
     private int tN = 0;

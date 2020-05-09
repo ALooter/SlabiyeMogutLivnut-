@@ -10,8 +10,15 @@ public class PlayerMovement : MonoBehaviour
     public Camera cam;
     
     Vector2 movement;
-
+    Transform defaulttransform;
     public Animator animat;
+
+    Transform shootpoint;
+
+    private void Start()
+    {
+        defaulttransform = this.transform;
+    }
 
     void Update()
     {
@@ -31,21 +38,24 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void FixedUpdate()
-    {   
-         if(Input.GetKey("w")){
+    {
+        if (Input.GetKey("w"))
+        {
+            rb.rotation = 270;
+        }
+        if (Input.GetKey("a"))
+        {
             rb.rotation = 0;
         }
-        if(Input.GetKey("a")){
-            rb.rotation = 90;
-        }
-        if(Input.GetKey("d")){
-            rb.rotation = -90;
-        }
-        if(Input.GetKey("s")){
+        if (Input.GetKey("d")){
             rb.rotation = 180;
         }
+        if(Input.GetKey("s")){
+            rb.rotation = 90;
+        } 
+        
         rb.MovePosition(rb.position + movement * playerSpeed * Time.fixedDeltaTime);
-
+        //shootpoint.rotation = this.transform.rotation;
         cam.transform.position = rb.transform.position + new Vector3(0, 0, -10f);
     }
 }

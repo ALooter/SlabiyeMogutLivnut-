@@ -56,23 +56,21 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey("w"))
         {
-            
             shRb.rotation = 0;
         }
         if (Input.GetKey("a"))
         {
             shRb.rotation = 90;
-            
+            transform.localScale = new Vector3(2.25f, 2f, 0);
         }
         if (Input.GetKey("d"))
         {
             shRb.rotation = 270;
-            
+            transform.localScale = new Vector3(-2.25f, 2f, 0);
         }
         if(Input.GetKey("s"))
         {
             shRb.rotation = 180;
-            
         } 
         
         shootPoint.transform.localPosition = defaultSH;

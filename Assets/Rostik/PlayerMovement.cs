@@ -11,10 +11,23 @@ public class PlayerMovement : MonoBehaviour
     
     Vector2 movement;
 
+    public Animator animat;
+
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+
+
+        //changing parameter responsible for animation
+        if (movement.x != 0 || movement.y != 0)
+        {
+            animat.SetBool("isMoving", true);
+        }
+        else
+        {
+            animat.SetBool("isMoving", false);
+        }
     }
 
     void FixedUpdate()
@@ -32,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
             rb.rotation = 180;
         }
         rb.MovePosition(rb.position + movement * playerSpeed * Time.fixedDeltaTime);
-        
+
         cam.transform.position = rb.transform.position + new Vector3(0, 0, -10f);
     }
 }

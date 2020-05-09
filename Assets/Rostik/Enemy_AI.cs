@@ -8,20 +8,25 @@ public class Enemy_AI : MonoBehaviour
 {
     public Transform player;
     public Rigidbody2D rb;
-    public Vector2 movementEnemy;
+    private Vector2 movementEnemy;
+    private EnemyAttack eattack;
+    public int bb = 0;
 
     public float enemySpeed = 10;
+    public float timerAttackBall = 10f;
 
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+        eattack = this.GetComponent<EnemyAttack>();
     }
 
     void Update()
     {
         Vector2 dir = player.position - transform.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        rb.rotation = angle;
+
+        eattack.AttackFlyingBall(rb.position.y, rb.position.x);
+     
 
         dir.Normalize();
         movementEnemy = dir;

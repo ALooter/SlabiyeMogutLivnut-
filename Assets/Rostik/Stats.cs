@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Stats : MonoBehaviour
 {
     public int HP = 100;
-    public GameObject deathEffect;
+    public GameObject deathAnim;
 
-    //input
     public void TakeDamage(int damage) 
     {
         HP -= damage;

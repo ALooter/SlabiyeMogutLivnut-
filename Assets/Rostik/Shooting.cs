@@ -22,12 +22,5 @@ public class Shooting : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, usedBullet.position, usedBullet.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(usedBullet.up * bulletForce, ForceMode2D.Impulse);
-
-        
-    }
-
-    void DestroyAfterTime() 
-    {
-
     }
 }
